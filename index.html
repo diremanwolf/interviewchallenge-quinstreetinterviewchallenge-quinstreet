@@ -5,14 +5,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="./assets/resets.css" />
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 
 <body>
-  <header class="primary-color flex-center">
+  <header>
     <img alt="logo" src="./assets/logo.svg" />
   </header>
+
+  <main>
+    <div class="container">
+      <form method="post" action="https://formsws-hilstaging-com-0adj9wt8gzyq.runscope.net/solar">
+        <section id="head" role="form-head">
+          <p>Enter to win a 3rd generation Nest</p>
+          <p>Learning Thermostat worth $249.</p>
+        </section>
+  
+        <section id="info" role="form-info">
+          <div class="box-input">
+            <label for="name"></label>
+            <input id="name" name="name" type="text" placeholder="Name"/>
+          </div>
+
+          <div id="address" class="box-input">
+            <div>
+              <label for="city"></label>
+              <input id="city" name="city" type="text" placeholder="City"/>
+            </div>
+            <div>
+              <label for="state"></label>
+              <input id="state" name="state" type="text" placeholder="State"/>
+            </div>
+          </div>
+
+          <div class="box-input">
+            <label for="phone"></label>
+            <input id="phone" name="phone" type="tel" placeholder="Phone Number"/>
+          </div>
+          <div class="box-input">
+            <label for="email"></label>
+            <input id="email" name="email" type="email" placeholder="Email Address"/>
+          </div>
+
+          <div class="box-input">
+            <button id="submit" type="submit">ENTER TO WIN</button>
+          </div>
+        </section>
+      </form>
+    </div>
+  </main>
 </body>
 
 </html>
