@@ -1,10 +1,9 @@
 body {
-  height: 100vh;
-
   font-family: 'Montserrat';
   font-style: normal;
 
   background: url('./background.svg');
+  background-repeat: repeat;
 
   animation-name: changeBackground;
   animation-duration: 5s;
