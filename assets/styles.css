@@ -3,9 +3,22 @@ body {
 
   font-family: 'Montserrat';
   font-style: normal;
-  
-  background-repeat: repeat;
-  background-image: url('./background.svg');
+
+  background-color: #ECF8FB;
+
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-name: changeBackground;
+  animation-iteration-count: infinite;
+}
+
+@keyframes changeBackground {
+  from {
+    background-color: #ECF8FB;
+  }
+  to {
+    background-color: #EFEFEF;
+  }
 }
 
 header {
@@ -158,3 +171,4 @@ header {
 
   color: #6EB7C2;
 }
+
