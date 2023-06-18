@@ -19,44 +19,53 @@
   </header>
 
   <main>
-    <div class="container">
-      <form method="post" action="https://formsws-hilstaging-com-0adj9wt8gzyq.runscope.net/solar">
-        <section id="head" role="form-head">
-          <p>Enter to win a 3rd generation Nest</p>
-          <p>Learning Thermostat worth $249.</p>
+    <div id="head-form">
+      <div id="container-head">
+        <section role="head">
+          <p class="">Enter to win a 3rd generation Nest</p>
+          <p class="">Learning Thermostat worth $249.</p>
         </section>
+      </div>
+
+      <div id="container-form">
+        <form method="post" action="https://formsws-hilstaging-com-0adj9wt8gzyq.runscope.net/solar">
+          <section role="form">
+            <div class="container-input">
+              <input id="name" name="name" type="text" class="form-input" placeholder="Name" required />
+            </div>
   
-        <section id="info" role="form-info">
-          <div class="box-input">
-            <label for="name"></label>
-            <input id="name" name="name" type="text" placeholder="Name"/>
-          </div>
+            <div class="container-input">
+              <input id="city" name="city" type="text" class="form-input" placeholder="City" required />
 
-          <div id="address" class="box-input">
-            <div>
-              <label for="city"></label>
-              <input id="city" name="city" type="text" placeholder="City"/>
+              <input id="state" name="state" type="text" class="form-input" placeholder="State" required />
             </div>
-            <div>
-              <label for="state"></label>
-              <input id="state" name="state" type="text" placeholder="State"/>
+  
+            <div class="container-input">
+              <input id="phone" name="phone" type="tel" class="form-input" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
             </div>
-          </div>
+  
+            <div class="container-input">
+              <input id="email" name="email" type="email" class="form-input" placeholder="Email Address" required />
+            </div>
+  
+            <div class="container-input">
+              <button id="submit" class="form-button" type="submit"><span >ENTER TO WIN</span></button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
 
-          <div class="box-input">
-            <label for="phone"></label>
-            <input id="phone" name="phone" type="tel" placeholder="Phone Number"/>
-          </div>
-          <div class="box-input">
-            <label for="email"></label>
-            <input id="email" name="email" type="email" placeholder="Email Address"/>
-          </div>
+    <div id="advert">
+      <fieldset id="container-advert">
+        <legend>EVEN MORE SAVINGS</legend>
 
-          <div class="box-input">
-            <button id="submit" type="submit">ENTER TO WIN</button>
-          </div>
-        </section>
-      </form>
+        <div id="advert-info">
+          <p class="info-header">ADVERTORIAL</p>
+          <p class="info-title">Tricks Homeowners Use to Eliminate Bills</p>
+          <p class="info-brief">Surging energy bills, unpredictable weather patterns and dissatisfaction with utility companies have homeowners scrambling… <a href="">READ MORE</a></p>
+        </div>
+      </fieldset>
     </div>
   </main>
 </body>
