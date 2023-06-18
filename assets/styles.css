@@ -4,21 +4,20 @@ body {
   font-family: 'Montserrat';
   font-style: normal;
 
-  background: linear-gradient(rgba(236, 248, 251, 1), rgba(239, 239, 239, .25)), url('./background.svg');  
+  background: url('./background.svg');
 
-  animation-duration: 5s;
-  animation-direction: alternate;
   animation-name: changeBackground;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 @keyframes changeBackground {
-  from {
-    background: linear-gradient(rgba(236, 248, 251, 1), rgba(239, 239, 239, .25)), url('./background.svg');  
-  }
-  to {
-    background: linear-gradient(rgba(239, 239, 239, 1), rgba(236, 248, 251, .25)), url('./background.svg');
-  }
+  0%   { background: linear-gradient(rgba(236, 248, 251, 1), rgba(239, 239, 239, 0)), url('./background.svg'); }
+  25%  { background: linear-gradient(rgba(236, 248, 251, .75), rgba(239, 239, 239, .25)), url('./background.svg'); }
+  50%  { background: linear-gradient(rgba(236, 248, 251, .50), rgba(239, 239, 239, .50)), url('./background.svg'); }
+  75%  { background: linear-gradient(rgba(236, 248, 251, .25), rgba(239, 239, 239, .75)), url('./background.svg');  }
+  100% { background: linear-gradient(rgba(236, 248, 251, 0), rgba(239, 239, 239, 1)), url('./background.svg'); }
 }
 
 header {
