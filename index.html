@@ -34,17 +34,17 @@
         <form method="post" action="https://formsws-hilstaging-com-0adj9wt8gzyq.runscope.net/solar">
           <section role="form">
             <div class="container-input">
-              <input id="name" name="name" type="text" class="form-input" placeholder="Name" required />
+              <input id="name" name="name" type="text" class="form-input" placeholder="Name" minlength="2" required />
             </div>
   
             <div class="container-input">
-              <input id="city" name="city" type="text" class="form-input" placeholder="City" required />
+              <input id="city" name="city" type="text" class="form-input" placeholder="City" />
 
-              <input id="state" name="state" type="text" class="form-input" placeholder="State" required />
+              <input id="state" name="state" type="text" class="form-input" placeholder="State" />
             </div>
   
             <div class="container-input">
-              <input id="phone" name="phone" type="tel" class="form-input" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+              <input id="phone" name="phone" type="tel" class="form-input" placeholder="Phone Number" maxlength="14" required />
             </div>
   
             <div class="container-input">

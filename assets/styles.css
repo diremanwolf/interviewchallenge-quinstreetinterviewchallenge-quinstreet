@@ -4,21 +4,7 @@ body {
   font-family: 'Montserrat';
   font-style: normal;
 
-  background-color: #ECF8FB;
-
-  animation-duration: 5s;
-  animation-direction: alternate;
-  animation-name: changeBackground;
-  animation-iteration-count: infinite;
-}
-
-@keyframes changeBackground {
-  from {
-    background-color: #ECF8FB;
-  }
-  to {
-    background-color: #EFEFEF;
-  }
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('./background.svg');
 }
 
 header {
