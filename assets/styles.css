@@ -1,3 +1,13 @@
+body {
+  height: 100vh;
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  
+  background-repeat: repeat;
+  background-image: url('./background.svg');
+}
+
 header {
   width: 100%;
   height: 80px;
@@ -9,25 +19,29 @@ header {
   background-color: #545253;
 }
 
-main {
-  height: 100vh;
-  background-image: url('./background.svg');
-  background-repeat: repeat;
+/* STARTS: This media query applies styles to devices 767px OR higher. */
+
+@media screen and (min-width: 767px) {
+  #head-form {
+    width: 670px;
+  }
 }
 
-.container {
+/* FINISH: This media query applies styles to devices 767px OR higher. */
+
+#head-form {
   width: 290px;
-  margin: 15px auto 0px;
+  
+  margin: auto;
+  margin-top: 15px;
 }
 
-#head {
-  padding: 15px 21.77px 16px 23.75px;
+#container-head {
+  padding: 15px 25px;
   background-color: #545253;
 }
 
-#head p {
-  font-family: 'Montserrat';
-  font-style: normal;
+#container-head p {
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
@@ -37,57 +51,40 @@ main {
   color: #FFFFFF;
 }
 
-#info div.box-input:first-child {
-  padding-top: 15px;
-}
-
-#info div.box-input:last-child {
-  padding-bottom: 22px;
-}
-
-.box-input {
-  padding: 10px 24px;
+.container-input {
+  padding: 10px 25px;
   background-color: #FFF;
 }
 
-#address {
-  display: flex;
-
-  justify-content: space-around;
-  flex-flow: row wrap;
-  align-items: stretch;
-}
-
-#address div:first-child {
-  flex-grow: 2;
-}
-
-#address div:last-child {
-  flex-grow: 1;
-}
-
-input {
+.form-input {
   width: 100%;
   height: 50px;
 
-  border: 1px solid #D8D8D8;
-  border-radius: 4px;
-
-  font-family: 'Montserrat';
-  font-style: normal;
   font-weight: 300;
   font-size: 16px;
   line-height: 30px;
-
+  text-indent: 10px;
   color: #747375;
+  
+  border: 1px solid #D8D8D8;
+  border-radius: 4px;
+
+  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-#submit {
+.form-button {
   width: 100%;
   height: 50px;
 
-  font-family: 'Montserrat';
-  font-style: normal;
+  cursor: pointer;
+
+  border: none;
+  border-radius: 100px;
+
+  background-color: #F6931D;
+}
+
+.form-button > span {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -97,17 +94,67 @@ input {
   letter-spacing: 0.85px;
 
   color: #FFFFFF;
-
-  border: none;
-  border-radius: 100px;
-
-  background-color: #F6931D;
 }
 
-/* This media query applies styles to devices 767px OR higher. */
+#advert {
+  width: 290px;
+  height: 235px;
 
-@media only screen and (min-width: 767px) {
-  .container {
-    width: 670px;
-  }
+  margin: 42px auto;
+}
+
+#container-advert {
+  border: 2px solid #A0BC57;
+}
+
+#container-advert legend {
+  margin: 0 auto;
+  padding: 0 5px;
+
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 15px;
+}
+
+#advert-info {
+  padding: 15px;
+  margin: 15px;
+
+  background: rgba(255, 255, 255, 0.75);
+  mix-blend-mode: normal;
+  opacity: 0.9;
+}
+
+.info-header {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #A0BC57;
+}
+
+.info-title {
+  margin-bottom: 12px;
+
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #545253;
+}
+
+.info-brief {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #545253;
+}
+
+.info-brief a {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #6EB7C2;
 }
