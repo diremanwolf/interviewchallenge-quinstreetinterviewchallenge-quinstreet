@@ -32,11 +32,15 @@ header {
   background-color: #545253;
 }
 
+main {
+  padding-top: 15px;
+  padding-bottom: 42px;
+}
+
 #head-form {
   width: 290px;
   
   margin: auto;
-  margin-top: 15px;
 }
 
 #container-head {
@@ -114,8 +118,8 @@ header {
 #advert {
   width: 290px;
   height: 235px;
-
-  margin: 42px auto;
+  margin: auto;
+  margin-top: 42px;
 }
 
 #container-advert {
