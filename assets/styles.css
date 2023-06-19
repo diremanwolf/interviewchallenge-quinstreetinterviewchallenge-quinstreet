@@ -86,6 +86,14 @@ main {
   box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+.form-input:focus {
+  outline: 0;
+}
+
+.error {
+  border: 2px solid rgba(255, 0, 0, 0.5);
+}
+
 #state {
   width: 50%;
   margin-left: 10px;
@@ -181,6 +189,8 @@ main {
 
   color: #6EB7C2;
 }
+
+
 
 /* STARTS: This media query applies styles to devices 767px OR higher. */
 

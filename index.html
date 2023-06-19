@@ -12,6 +12,8 @@
 
   <link rel="stylesheet" href="./assets/resets.css" />
   <link rel="stylesheet" href="./assets/styles.css" />
+
+  <script src="index.js" defer></script>
   
   <title>QuinStreet: Coding Assessment</title>
 </head>
@@ -31,10 +33,10 @@
       </div>
 
       <div id="container-form">
-        <form method="post" action="https://formsws-hilstaging-com-0adj9wt8gzyq.runscope.net/solar">
+        <form id="form">
           <section role="form">
             <div class="container-input">
-              <input id="name" name="name" type="text" class="form-input" placeholder="Name" minlength="2" required />
+              <input id="name" name="name" type="text" class="form-input" placeholder="Name" minlength="2" pattern="[a-ZA-Z]+" required />
             </div>
   
             <div class="container-input">
@@ -44,15 +46,15 @@
             </div>
   
             <div class="container-input">
-              <input id="phone" name="phone" type="tel" class="form-input" placeholder="Phone Number" maxlength="14" required />
+              <input id="phone" name="phone" type="tel" class="form-input" placeholder="Phone Number" maxlength="14" required/>
             </div>
   
             <div class="container-input">
-              <input id="email" name="email" type="email" class="form-input" placeholder="Email Address" required />
+              <input id="email" name="email" type="email" class="form-input" placeholder="Email Address" required/>
             </div>
   
             <div class="container-input">
-              <button id="submit" class="form-button" type="submit"><span >ENTER TO WIN</span></button>
+              <button id="submit" class="form-button"><span >ENTER TO WIN</span></button>
             </div>
           </section>
         </form>
