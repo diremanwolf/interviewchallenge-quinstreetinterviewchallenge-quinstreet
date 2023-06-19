@@ -37,6 +37,8 @@ const validatePhoneInputValue = () => {
     phone.classList.add('error');
   } else {
     phone.classList.remove('error')
+    
+    return true;
   }
 }
 
@@ -64,6 +66,8 @@ const validateNameInputValue = () => {
     name.classList.add('error');
   } else {
     name.classList.remove('error');
+
+    return true;
   }
 }
 
@@ -85,6 +89,8 @@ const validateEmailInputValue = () => {
     email.classList.add('error');
   } else {
     email.classList.remove('error');
+
+    return true;
   }
 }
 
@@ -97,31 +103,35 @@ email.addEventListener('blur', () => {
 const button = document.getElementById('submit');
 
 const disableInputsAndButton = () => {
+  let cursorStyle = 'cursor: not-allowed;'
   name.disabled = true;
-  name.style = 'cursor: not-allowed;';
+  name.style = cursorStyle;
   
   city.disabled = true;
-  city.style = 'cursor: not-allowed;';
+  city.style = cursorStyle;
 
   state.disabled = true;
-  state.style = 'cursor: not-allowed;';
+  state.style = cursorStyle;
   
   phone.disabled = true;
-  phone.style = 'cursor: not-allowed;';
+  phone.style = cursorStyle;
   
   email.disabled = true;
-  email.style = 'cursor: not-allowed;';
+  email.style = cursorStyle;
   
   button.disabled = true;
-  button.style = 'cursor: not-allowed; opacity: .75;';
+  button.style = cursorStyle + ' opacity: .75;';
 
   button.children[0].innerHTML = "Submitted";
 }
 
 button.addEventListener('click', event => {
   event.preventDefault();
+  if(!validateNameInputValue()|| !validatePhoneInputValue() || !validateEmailInputValue()) {
+    return;
+  }
+  
   disableInputsAndButton();
   
   // ajax with values of inputs
-
 })
