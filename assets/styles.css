@@ -2,7 +2,7 @@ body {
   font-family: 'Montserrat';
   font-style: normal;
 
-  background: linear-gradient(rgba(239, 239, 239, 1), rgba(236, 248, 251, .25)), url('./background.svg');
+  background-image: linear-gradient(rgba(239, 239, 239, 1), rgba(236, 248, 251, .25)), url('./background.svg');
 }
 
 header {
@@ -174,15 +174,9 @@ main {
   color: #6EB7C2;
 }
 
-
-
 /* STARTS: This media query applies styles to devices 767px OR higher. */
 
 @media (min-width: 767px) {
-  body {
-    height: 100%;
-  }
-
   #head-form {
     width: 670px;
   }
