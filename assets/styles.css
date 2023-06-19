@@ -2,9 +2,7 @@ body {
   font-family: 'Montserrat';
   font-style: normal;
 
-  background-image: url('./background.svg');
-  background-repeat: repeat;
-  background-size: contain;
+  background: linear-gradient(rgba(239, 239, 239, 1), rgba(236, 248, 251, .25)), url('./background.svg');
 }
 
 header {
@@ -20,20 +18,7 @@ header {
 
 main {
   padding-top: 15px;
-  padding-bottom: 42px;
-
-  animation-name: changeBackground;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes changeBackground {
-  0%   { background: linear-gradient(rgba(236, 248, 251, 1), rgba(239, 239, 239, 0)), url('./background.svg'); }
-  25%  { background: linear-gradient(rgba(236, 248, 251, .75), rgba(239, 239, 239, .25)), url('./background.svg'); }
-  50%  { background: linear-gradient(rgba(236, 248, 251, .50), rgba(239, 239, 239, .50)), url('./background.svg'); }
-  75%  { background: linear-gradient(rgba(236, 248, 251, .25), rgba(239, 239, 239, .75)), url('./background.svg');  }
-  100% { background: linear-gradient(rgba(236, 248, 251, 0), rgba(239, 239, 239, 1)), url('./background.svg'); }
+  padding-bottom: 42px; 
 }
 
 #head-form {
@@ -194,7 +179,7 @@ main {
 /* STARTS: This media query applies styles to devices 767px OR higher. */
 
 @media (min-width: 767px) {
-  main {
+  body {
     height: 100%;
   }
 
