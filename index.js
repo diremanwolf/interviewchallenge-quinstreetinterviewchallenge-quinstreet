@@ -85,9 +85,19 @@ const validateEmailInputValue = () => {
   }
 }
 
-const email = document.getElementById('email')
+const email = document.getElementById('email');
 
 email.addEventListener('blur', () => {
   validateEmailInputValue()
 })
 
+const button = document.getElementById('submit');
+
+button.addEventListener('click', event => {
+  event.preventDefault();
+  
+  button.children[0].innerHTML = "Submitted";
+  
+  button.style = 'cursor: not-allowed; opacity: .75;'
+  button.disabled = true;
+})
