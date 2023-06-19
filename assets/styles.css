@@ -1,6 +1,10 @@
 body {
   font-family: 'Montserrat';
   font-style: normal;
+
+  background-image: url('./background.svg');
+  background-repeat: repeat;
+  background-size: contain;
 }
 
 header {
@@ -15,13 +19,8 @@ header {
 }
 
 main {
-  height: 100%;
-
   padding-top: 15px;
   padding-bottom: 42px;
-
-  background: url('./background.svg');
-  background-repeat: repeat;
 
   animation-name: changeBackground;
   animation-duration: 5s;
@@ -195,6 +194,10 @@ main {
 /* STARTS: This media query applies styles to devices 767px OR higher. */
 
 @media (min-width: 767px) {
+  main {
+    height: 100%;
+  }
+
   #head-form {
     width: 670px;
   }
