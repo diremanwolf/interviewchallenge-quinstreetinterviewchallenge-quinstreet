@@ -1,3 +1,6 @@
+const city = document.getElementById('city')
+const state = document.getElementById('state')
+
 const isNumericOrModifierKey = event => {
   const key = event.keyCode;
   return ((key >= 48 && key <= 57) || (key >= 96 && key <= 105) || (event.shiftKey === true || key === 35 || key === 36) || (key === 8 || key === 9 || key === 13 || key === 46) || (key > 36 && key < 41));
@@ -93,11 +96,32 @@ email.addEventListener('blur', () => {
 
 const button = document.getElementById('submit');
 
+const disableInputsAndButton = () => {
+  name.disabled = true;
+  name.style = 'cursor: not-allowed;';
+  
+  city.disabled = true;
+  city.style = 'cursor: not-allowed;';
+
+  state.disabled = true;
+  state.style = 'cursor: not-allowed;';
+  
+  phone.disabled = true;
+  phone.style = 'cursor: not-allowed;';
+  
+  email.disabled = true;
+  email.style = 'cursor: not-allowed;';
+  
+  button.disabled = true;
+  button.style = 'cursor: not-allowed; opacity: .75;';
+
+  button.children[0].innerHTML = "Submitted";
+}
+
 button.addEventListener('click', event => {
   event.preventDefault();
+  disableInputsAndButton();
   
-  button.children[0].innerHTML = "Submitted";
-  
-  button.style = 'cursor: not-allowed; opacity: .75;'
-  button.disabled = true;
+  // ajax with values of inputs
+
 })
