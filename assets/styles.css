@@ -125,11 +125,7 @@ main {
   outline: 0;
 }
 
-.form-input:focus:required:valid {
-  border: 1px solid #D8D8D8;
-}
-
-.form-input:focus:required:invalid {
+.error {
   border: 2px solid #D50303;
 }
 

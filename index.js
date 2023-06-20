@@ -64,6 +64,22 @@ function xhrAjax(request) {
   };
 };
 
+function validateNameInputValue() {
+  const name = document.getElementById('name');
+  const nameValue = name.value;
+
+  function isAlphabetOnly(value) {
+    return /[a-zA-Z]/g.test(value);
+  }
+
+  if(nameValue.length === 0 || nameValue.length <= 2 || !isAlphabetOnly(nameValue)) {
+    name.classList.add('error');
+  } else {
+    name.classList.remove('error');
+    return true;
+  }
+};
+
 function validatePhoneInputValue() {
   const phone = document.getElementById('phone');
   const phoneValue = phone.value.replace(/\D/g,'').substring(0,10);
@@ -71,9 +87,26 @@ function validatePhoneInputValue() {
   if(phoneValue.length !== 10) {
     phone.classList.add('error');
   } else {
-    phone.classList.remove('error')
+    phone.classList.remove('error');
+    return true;
   }
 };
+
+function validateEmailInputValue() {
+  const email = document.getElementById('email');
+  const emailValue = email.value;
+
+  function hasEmailStructure(value) {
+    return /\S+@\S+\.\S+/g.test(value);
+  }
+
+  if(emailValue.length === 0 || !hasEmailStructure(emailValue)) {
+    email.classList.add('error');
+  } else {
+    email.classList.remove('error');
+    return true;
+  }
+}
 
 function disableInputsAndButton() {
   name.classList.add('disabled');
@@ -86,16 +119,20 @@ function disableInputsAndButton() {
 
 // SECTION: functions being added to elements as event listeners.
 
+name.addEventListener('blur', () => validateNameInputValue())
+
 phone.addEventListener('keydown', event => enforcePhoneFormat(event))
 
 phone.addEventListener('keyup', event => convertPhoneToMask(event))
 
 phone.addEventListener('blur', event => validatePhoneInputValue())
 
+email.addEventListener('blur', () => validateEmailInputValue())
+
 button.addEventListener('click', event => {
   event.preventDefault();
 
-  if(name.value !== '' && phone.value !== '' && email.value !== '') {
+  if(name.value !== '' && validateNameInputValue() && phone.value !== '' && validatePhoneInputValue() && email.value !== '' && validateEmailInputValue()) {
     button.children[0].innerHTML = 'Submitted';
   
     disableInputsAndButton();
