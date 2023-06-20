@@ -2,7 +2,7 @@ body {
   font-family: 'Montserrat';
   font-style: normal;
 
-  background-image: linear-gradient(rgba(239, 239, 239, 1), rgba(236, 248, 251, .25)), url('./background.svg');
+  background: url('./background.svg') repeat;
 }
 
 header {
@@ -16,9 +16,33 @@ header {
   background-color: #545253;
 }
 
+#container {
+  background: linear-gradient(-45deg, rgba(239, 239, 239, .7), rgba(236, 248, 251, .3));
+  background-size: 400% 400%;
+
+  height: 100vh;
+  width: 100%;
+  
+  animation: gradient-animation 5s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 main {
   padding-top: 15px;
-  padding-bottom: 42px; 
+  padding-bottom: 42px;
+
+  
 }
 
 #head-form {
@@ -75,7 +99,7 @@ main {
 }
 
 .error {
-  border: 2px solid rgba(255, 0, 0, 0.5);
+  border: 2px solid #D50303;
 }
 
 #state {
