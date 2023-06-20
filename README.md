@@ -2,13 +2,16 @@
 
 ## Getting Started
 
-First, run the development server:
+
+To run locally, run the development server using:
 
 ```bash
 npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+| To see live demo, go to [quinstreet-assessment](https://diremanwolf.github.io/quinstreet-assessment/).
 
 ## User Story
 
