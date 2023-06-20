@@ -1,5 +1,15 @@
-const city = document.getElementById('city')
-const state = document.getElementById('state')
+// SECTION: declaration of constants.
+
+const name = document.getElementById('name');
+const city = document.getElementById('city');
+const state = document.getElementById('state');
+const phone = document.getElementById('phone');
+const email = document.getElementById('email');
+const button = document.getElementById('submit');
+
+const URL = " https://formsws-hilstaging-com-0adj9wt8gzyq.runscope.net/solar";
+
+// SECTION: declaration of functions.
 
 const isNumericOrModifierKey = event => {
   const key = event.keyCode;
@@ -12,7 +22,7 @@ const enforcePhoneFormat = event => {
 	}
 };
 
-const convertPhoneToMask = event => {
+function convertPhoneToMask(event) {
   const target = event.target;
 	const input = event.target.value.replace(/\D/g,'').substring(0,10);
   
@@ -29,7 +39,32 @@ const convertPhoneToMask = event => {
   }
 };
 
-const validatePhoneInputValue = () => {
+function retrieveDataFromInput() {
+  return {
+    name: name.value,
+    city: city.value,
+    state: state.value,
+    phone: phone.value,
+    email: email.value
+  }
+};
+
+function xhrAjax(request) {
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('POST', URL, true);
+  xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+
+  xhr.send(JSON.stringify(request));
+
+  xhr.onload = function () {
+    if(xhr.status === 201) {
+      console.info("Successful post.") 
+    }
+  };
+};
+
+function validatePhoneInputValue() {
   const phone = document.getElementById('phone');
   const phoneValue = phone.value.replace(/\D/g,'').substring(0,10);
 
@@ -37,101 +72,37 @@ const validatePhoneInputValue = () => {
     phone.classList.add('error');
   } else {
     phone.classList.remove('error')
-    
-    return true;
   }
-}
+};
 
-const phone = document.getElementById('phone');
+function disableInputsAndButton() {
+  name.classList.add('disabled');
+  city.classList.add('disabled');
+  state.classList.add('disabled');
+  phone.classList.add('disabled');
+  email.classList.add('disabled');
+  button.classList.add('disabled');
+};
 
-phone.addEventListener('keydown', event => {
-  enforcePhoneFormat(event)
-})
-phone.addEventListener('keyup', event => {
-  convertPhoneToMask(event)
-})
-phone.addEventListener('blur', () => {
-  validatePhoneInputValue()
-})
+// SECTION: functions being added to elements as event listeners.
 
-const validateNameInputValue = () => {
-  const name = document.getElementById('name');
-  const nameValue = name.value;
+phone.addEventListener('keydown', event => enforcePhoneFormat(event))
 
-  function isAlphabetOnly(value) {
-    return /[a-zA-Z]/g.test(value);
-  }
+phone.addEventListener('keyup', event => convertPhoneToMask(event))
 
-  if(nameValue.length === 0 || nameValue.length < 2 || !isAlphabetOnly(nameValue)) {
-    name.classList.add('error');
-  } else {
-    name.classList.remove('error');
-
-    return true;
-  }
-}
-
-const name = document.getElementById('name')
-
-name.addEventListener('blur', () => {
-  validateNameInputValue()
-})
-
-const validateEmailInputValue = () => {
-  const email = document.getElementById('email');
-  const emailValue = email.value;
-
-  function isAlphabetOnly(value) {
-    return /\S+@\S+\.\S+/g.test(value);
-  }
-
-  if(emailValue.length === 0 || emailValue.length < 2 || !isAlphabetOnly(emailValue)) {
-    email.classList.add('error');
-  } else {
-    email.classList.remove('error');
-
-    return true;
-  }
-}
-
-const email = document.getElementById('email');
-
-email.addEventListener('blur', () => {
-  validateEmailInputValue()
-})
-
-const button = document.getElementById('submit');
-
-const disableInputsAndButton = () => {
-  let cursorStyle = 'cursor: not-allowed;'
-  name.disabled = true;
-  name.style = cursorStyle;
-  
-  city.disabled = true;
-  city.style = cursorStyle;
-
-  state.disabled = true;
-  state.style = cursorStyle;
-  
-  phone.disabled = true;
-  phone.style = cursorStyle;
-  
-  email.disabled = true;
-  email.style = cursorStyle;
-  
-  button.disabled = true;
-  button.style = cursorStyle + ' opacity: .75;';
-
-  button.children[0].innerHTML = "Submitted";
-}
+phone.addEventListener('blur', event => validatePhoneInputValue())
 
 button.addEventListener('click', event => {
   event.preventDefault();
-  if(!validateNameInputValue()|| !validatePhoneInputValue() || !validateEmailInputValue()) {
-    return;
+
+  if(name.value !== '' && phone.value !== '' && email.value !== '') {
+    button.children[0].innerHTML = 'Submitted';
+  
+    disableInputsAndButton();
+    
+    const request = retrieveDataFromInput();
+    xhrAjax(request);
   }
-  
-  disableInputsAndButton();
-  
-  // ajax with values of inputs
+
+  return false;
 })
